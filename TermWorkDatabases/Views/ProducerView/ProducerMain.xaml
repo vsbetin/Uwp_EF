@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="TermWorkDatabases.Views.ProducerView.ProducerMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TermWorkDatabases.Views.ProducerView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <SplitView Name="ProducerMainSplitView" OpenPaneLength="150" DisplayMode="CompactInline" Background="White">
+        <SplitView.Pane>
+            <ListView Background="#FFC7F3F3">
+                <StackPanel Orientation="Horizontal" PointerPressed="HanburgerButton_PointerPressed">
+                    <TextBlock Width="35" FontFamily="Segoe MDL2 Assets" Foreground="Navy" 
+                               FontSize="25" Text="&#xE700;" VerticalAlignment="Center"/>
+                    <TextBlock Width="100" Text="Colapse" FontSize="17" Foreground="Navy" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" PointerPressed="HomeButton_PointerPressed">
+                    <TextBlock Width="35" FontFamily="Segoe MDL2 Assets" Foreground="Navy"
+                               FontSize="25" Text="&#xE80F;" VerticalAlignment="Center"/>
+                    <TextBlock Width="100" Text="Home" FontSize="17" Foreground="Navy" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" PointerPressed="NewButton_PointerPressed">
+                    <TextBlock  Width="35" FontSize="25" Foreground="Navy" 
+                                VerticalAlignment="Center" Text="11"/>
+                    <TextBlock Width="100" Text="New" FontSize="17" Foreground="Navy" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" PointerPressed="DuringButton_PointerPressed">
+                    <TextBlock Width="35" FontFamily="Segoe MDL2 Assets" Foreground="Navy"
+                               FontSize="25" Text="&#xE823;" VerticalAlignment="Center"/>
+                    <TextBlock Width="100" Text="During" FontSize="17" Foreground="Navy" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" PointerPressed="CompletedButton_PointerPressed">
+                    <TextBlock Width="35" FontFamily="Segoe MDL2 Assets" Foreground="Navy"
+                               FontSize="25" Text="&#xE930;" VerticalAlignment="Center"/>
+                    <TextBlock Width="100" Text="Completed" FontSize="17" Foreground="Navy" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" PointerPressed="ProductsButton_PointerPressed">
+                    <TextBlock Width="35" FontFamily="Segoe MDL2 Assets" Foreground="Navy"
+                               FontSize="25" Text="&#xEA42;" VerticalAlignment="Center"/>
+                    <TextBlock Width="100" Text="Products" FontSize="17" Foreground="Navy" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" PointerPressed="PlantsButton_PointerPressed">
+                    <TextBlock Width="35" FontFamily="Segoe MDL2 Assets" Foreground="Navy"
+                               FontSize="25" Text="&#xEC07;" VerticalAlignment="Center"/>
+                    <TextBlock Width="100" Text="Plants" FontSize="17" Foreground="Navy" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" PointerPressed="ExitProducerMain_PointerPressed">
+                    <TextBlock Width="35" FontFamily="Segoe MDL2 Assets" Foreground="Navy"
+                               FontSize="25" Text="&#xE947;" VerticalAlignment="Center"/>
+                    <TextBlock Width="100" Text="Exit" FontSize="17" Foreground="Navy" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ListView>
+        </SplitView.Pane>
+
+        <SplitView.Content>
+            <Frame x:Name="ProducerContentFrame" Background="#FFF0FAFA"/>
+        </SplitView.Content>
+    </SplitView>
+</Page>

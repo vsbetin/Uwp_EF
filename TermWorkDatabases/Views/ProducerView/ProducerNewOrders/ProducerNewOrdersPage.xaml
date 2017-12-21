@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="TermWorkDatabases.Views.ProducerView.ProducerNewOrdersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TermWorkDatabases.Views.ProducerView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Views/Resources/ButtonsTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackPanel Background="Transparent">
+        <TextBlock Text="New Orders" Foreground="Navy" FontWeight="Bold" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Grid x:Name="ParrentGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="270"/>
+            </Grid.ColumnDefinitions>
+            <ListView HorizontalAlignment="Stretch" Grid.Column="0"
+                      Height="{Binding Height, ElementName=ParrentGrid}"
+                      SelectedItem="{Binding Order, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      ItemsSource="{Binding NewOrders, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <StackPanel HorizontalAlignment="Right" Grid.Column="1">
+
+                <Button Margin="10, 0, 10, 10" Content="Confirm oreder" Foreground="White" 
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="50" Template="{StaticResource FocusingButton}" 
+                    HorizontalAlignment="Left" Width="250"
+                    Command="{Binding ConfirmOrder}"/>
+
+                <Button Margin="10" Content="Cancel order" Foreground="White" 
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Width="250" Height="50" Template="{StaticResource FocusingButton}"
+                    Command="{Binding CancelOrder}"/>                
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Page>

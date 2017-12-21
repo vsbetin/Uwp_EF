@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="TermWorkDatabases.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TermWorkDatabases"
+    xmlns:viewModel="using:TermWorkDatabases.ViewModels.AuthorizationViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <viewModel:SingInViewModel x:Name="ViewModel"/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Views/Resources/ButtonsTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="#FFF0FAFA">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel  Margin="10">
+                <RadioButton x:Name="CustomerRadio" GroupName="Users" Content="Customer" IsChecked="True"/>
+                <RadioButton x:Name="ProducerRadio" GroupName="Users" Content="Producer"/>
+            </StackPanel>
+            <TextBox PlaceholderText="Login" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10"/>
+            <PasswordBox PlaceholderText="Password" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10"/>
+            <TextBlock Text="{Binding ErroreText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10" Foreground="Red"/>
+            
+            <Button x:Name="SignInButton" Command="{x:Bind ViewModel.SignIn}" 
+                    CommandParameter="{Binding ElementName=CustomerRadio, Path=IsChecked}" 
+                    Margin="10" Content="Sign In" Foreground="White" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Width="250" Height="50" Template="{StaticResource FocusingButton}"/>
+            
+            <Button x:Name="SignUpButton" Margin="10" Content="Sign Up" Foreground="White" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Width="250" Height="50" Template="{StaticResource FocusingButton}" Click="SignUpButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

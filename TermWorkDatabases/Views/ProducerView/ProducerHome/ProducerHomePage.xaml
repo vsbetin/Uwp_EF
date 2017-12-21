@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="TermWorkDatabases.Views.ProducerView.ProducerHomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TermWorkDatabases.Views.ProducerView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Views/Resources/ButtonsTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="Transparent">
+        <StackPanel>
+            <TextBlock Text="Profile" FontWeight="Bold" Foreground="Navy"  FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" Text="Company name:" FontSize="25"/>
+                <TextBlock Margin="10" Foreground="Navy" 
+                           Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                           FontWeight="Bold" FontSize="25"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" Text="Mobile number:" FontSize="25"/>
+                <TextBlock Margin="10" Foreground="Navy" 
+                           Text="{Binding MobilePhone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                           FontWeight="Bold" FontSize="25"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" Text="During orders:" FontSize="25"/>
+                <TextBlock Margin="10" Foreground="Navy" 
+                           Text="{Binding DuringOrders, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                           FontWeight="Bold" FontSize="25"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" Text="Completed orders:" FontSize="25"/>
+                <TextBlock Margin="10" Foreground="Navy" 
+                           Text="{Binding CompletedOrders, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                           FontWeight="Bold" FontSize="25"/>
+            </StackPanel>
+
+            <Button Margin="10" Content="Change data" Foreground="White" 
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Width="250" Height="50" Template="{StaticResource FocusingButton}"
+                    Command="{Binding ChangeData}"/>
+
+            <Button Margin="10" Content="Change password" Foreground="White" 
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Width="250" Height="50" Template="{StaticResource FocusingButton}" 
+                    Command="{Binding ChangePassword}"/>
+
+        </StackPanel>
+
+
+    </Grid>
+</Page>

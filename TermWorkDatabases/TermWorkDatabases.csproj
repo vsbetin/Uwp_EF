@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{75C1C40C-DEF5-4B22-8887-6370896941DB}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TermWorkDatabases</RootNamespace>
+    <AssemblyName>TermWorkDatabases</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>TermWorkDatabases_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Navigantion\INavigationService.cs" />
+    <Compile Include="Infrastructure\Comand\RelayCommand.cs" />
+    <Compile Include="Infrastructure\Navigantion\NavigationService.cs" />
+    <Compile Include="Migrations\20171221013331_First.cs" />
+    <Compile Include="Migrations\20171221013331_First.designer.cs">
+      <DependentUpon>20171221013331_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ProductAccountingDbContextModelSnapshot.cs" />
+    <Compile Include="Models\DataAccess\Context\ProductAccountingDbContext.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Companies\CompanyAuthorizationRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Companies\CompanyInfoRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Companies\CompanyRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Customers\CustomerAuthorizationRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Customers\CustomerInfoRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Customers\CustomerRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Companies\ICompanyRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Customers\ICustomerInfoRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Companies\ICompaniesInfoRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Customers\ICustomerAuthorizationRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Companies\ICompanyAuthorizationRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Customers\ICustomerRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Plants\IPlantsInfoRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Orders\IOrderCompanyRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Orders\IOrderCustomerRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Orders\IOrderRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Products\IProductCompanyRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\Products\IProductsInfoRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Interfaces\ISaveChanges.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Orders\OrderCompanyRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Orders\OrderCustomerRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Orders\OrderRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Plants\PlantsInfoRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Products\ProductCompanyRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\Products\ProductsInfoRepository.cs" />
+    <Compile Include="Models\DataAccess\Repositories\RepositoryBase.cs" />
+    <Compile Include="Models\Enteties\Company.cs" />
+    <Compile Include="Models\Enteties\CompanyProduct.cs" />
+    <Compile Include="Models\Enteties\CompanyAccessData.cs" />
+    <Compile Include="Models\Enteties\CustomerAccessData.cs" />
+    <Compile Include="Models\Enteties\Customer.cs" />
+    <Compile Include="Models\Enteties\OrderDetail.cs" />
+    <Compile Include="Models\Enteties\Order.cs" />
+    <Compile Include="Models\Enteties\Plant.cs" />
+    <Compile Include="Models\Enteties\Product.cs" />
+    <Compile Include="Models\Services\AuthorizationService.cs" />
+    <Compile Include="Models\Services\Companies\CompanyInfoService.cs" />
+    <Compile Include="Models\Services\Companies\CompanyOrdersService.cs" />
+    <Compile Include="Models\Services\Companies\CompanyPlantsService.cs" />
+    <Compile Include="Models\Services\Companies\CompanyProductsService.cs" />
+    <Compile Include="Models\Services\Customers\CustomerInfoService.cs" />
+    <Compile Include="Models\Services\Customers\CustomerOrdersService.cs" />
+    <Compile Include="Models\Services\Customers\CustomerProductsService.cs" />
+    <Compile Include="Models\Services\Interfaces\Companies\ICompanyInfoService.cs" />
+    <Compile Include="Models\Services\Interfaces\Companies\ICompanyOrdersService.cs" />
+    <Compile Include="Models\Services\Interfaces\Companies\ICompanyPlantsService.cs" />
+    <Compile Include="Models\Services\Interfaces\Companies\ICompanyProductsService.cs" />
+    <Compile Include="Models\Services\Interfaces\Customers\ICustomerInfoService.cs" />
+    <Compile Include="Models\Services\Interfaces\Customers\ICustomerOrdersService.cs" />
+    <Compile Include="Models\Services\Interfaces\Customers\ICustomerProductsService.cs" />
+    <Compile Include="Models\Services\Interfaces\IAuthorizationService.cs" />
+    <Compile Include="ViewModels\AuthorizationViewModels\SignUpViewModel.cs" />
+    <Compile Include="ViewModels\AuthorizationViewModels\SingInViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModels\CustomerHome\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModels\CustomerHome\ChangeProfileDataViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModels\CustomerHome\CustomerHomeViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModels\CustomerOrders\CompletedOrdersViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModels\CustomerOrders\DuringOrdersViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModels\CustomerOrders\NewOrderViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModels\CustomerProducts\CustomerProductsViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerHome\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerHome\ChangeProfileDataViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerHome\ProducerHomeViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerOrders\CompletedOrdersViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerOrders\ConfirmOrderViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerOrders\DuringOrdersViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerOrders\NewOrdersViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerPlants\AddPlantViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerPlants\ChangePlantViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerPlants\PlantsViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerProducts\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerProducts\ChangeProductViewModel.cs" />
+    <Compile Include="ViewModels\ProducerViewModels\ProducerProducts\ProducerProductsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\CustomerView\CustomerHome\ChangeCustomerPassword.xaml.cs">
+      <DependentUpon>ChangeCustomerPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView\CustomerHome\ChangeProfileData.xaml.cs">
+      <DependentUpon>ChangeProfileData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView\CustomerCompleteOrders\CustomerCompletedOrdersPage.xaml.cs">
+      <DependentUpon>CustomerCompletedOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView\CustomerDuringOrders\CustomerDuringOrdersPage.xaml.cs">
+      <DependentUpon>CustomerDuringOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView\CustomerHome\CustomerHomePage.xaml.cs">
+      <DependentUpon>CustomerHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView\CustomerMain.xaml.cs">
+      <DependentUpon>CustomerMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView\CustomerNewOrders\CustomerNewOrdersPage.xaml.cs">
+      <DependentUpon>CustomerNewOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView\CustomerProducts\CustomerProductsPage.xaml.cs">
+      <DependentUpon>CustomerProductsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ProducerView\ProducerCompletedOrders\ProducerCompletedOrdersPage.xaml.cs">
+      <DependentUpon>ProducerCompletedOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerDuringOrders\ProducerDuringOrdersPage.xaml.cs">
+      <DependentUpon>ProducerDuringOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerHome\ChangeProducerPassword.xaml.cs">
+      <DependentUpon>ChangeProducerPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerHome\ChangeProfileData.xaml.cs">
+      <DependentUpon>ChangeProfileData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerHome\ProducerHomePage.xaml.cs">
+      <DependentUpon>ProducerHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerMain.xaml.cs">
+      <DependentUpon>ProducerMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerNewOrders\ConfirmOrder.xaml.cs">
+      <DependentUpon>ConfirmOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerNewOrders\ProducerNewOrdersPage.xaml.cs">
+      <DependentUpon>ProducerNewOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerPlants\ProducerAddNewPlant.xaml.cs">
+      <DependentUpon>ProducerAddNewPlant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerPlants\ProducerModifyPlant.xaml.cs">
+      <DependentUpon>ProducerModifyPlant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerPlants\ProducerPlantsPage.xaml.cs">
+      <DependentUpon>ProducerPlantsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerProducts\ProducerAddNewProduct.xaml.cs">
+      <DependentUpon>ProducerAddNewProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerProducts\ProducerModifyProduct.xaml.cs">
+      <DependentUpon>ProducerModifyProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProducerView\ProducerProducts\ProducerProductsPage.xaml.cs">
+      <DependentUpon>ProducerProductsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Registrarion\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="TermWorkDatabases_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Views\CustomerView\CustomerHome\ChangeCustomerPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomerView\CustomerHome\ChangeProfileData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomerView\CustomerCompleteOrders\CustomerCompletedOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomerView\CustomerDuringOrders\CustomerDuringOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomerView\CustomerHome\CustomerHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomerView\CustomerMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomerView\CustomerNewOrders\CustomerNewOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomerView\CustomerProducts\CustomerProductsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerCompletedOrders\ProducerCompletedOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerDuringOrders\ProducerDuringOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerHome\ChangeProducerPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerHome\ChangeProfileData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerHome\ProducerHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerNewOrders\ConfirmOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerNewOrders\ProducerNewOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerPlants\ProducerAddNewPlant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerPlants\ProducerModifyPlant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerPlants\ProducerPlantsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerProducts\ProducerAddNewProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerProducts\ProducerModifyProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProducerView\ProducerProducts\ProducerProductsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Registrarion\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Resources\ButtonsTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
