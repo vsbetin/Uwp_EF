@@ -9,7 +9,7 @@
                 <VisualStateGroup x:Name="CommonStates">
 
                     <VisualStateGroup.Transitions>
-                        <VisualTransition To="PointerOver" GeneratedDuration="0:0:0.15"/>
+                        <VisualTransition To="PointerOver" GeneratedDuration="0:0:0.2"/>
                         <VisualTransition To="Pressed" GeneratedDuration="0:0:0.1"/>
                     </VisualStateGroup.Transitions>
 

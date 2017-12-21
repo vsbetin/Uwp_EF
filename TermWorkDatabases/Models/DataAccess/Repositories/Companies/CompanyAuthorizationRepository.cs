@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Companies
 {
-    class CompanyAuthorizationRepository :RepositoryBase, ICompanyAuthorizationRepository
+    public class CompanyAuthorizationRepository :RepositoryBase, ICompanyAuthorizationRepository
     {       
         public bool AddCompany(Company company, CompanyAccessData companyAccessData)
         {

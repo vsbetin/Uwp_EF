@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Customers
 {
-    class CustomerRepository : RepositoryBase, ICustomerRepository
+    public class CustomerRepository : RepositoryBase, ICustomerRepository
     {
         public Customer GetCustomer(string name)
         {

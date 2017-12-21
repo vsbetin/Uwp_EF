@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.Services.Customers
 {
-    class CustomerProductsService : ICustomerProductsService
+    public class CustomerProductsService : ICustomerProductsService
     {
         IProductsInfoRepository _productsInfoRepository;
         protected IProductsInfoRepository ProductsInfoRepository

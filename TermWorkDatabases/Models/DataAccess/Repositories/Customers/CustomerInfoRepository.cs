@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Customers
 {
-    class CustomerInfoRepository : CustomerRepository, ICustomerInfoRepository
+    public class CustomerInfoRepository : CustomerRepository, ICustomerInfoRepository
     {
         public bool ChangeCustomerLogin(Customer customer, string login)
         {
@@ -48,12 +48,18 @@ namespace TermWorkDatabases.Models.DataAccess.Repositories.Customers
 
         public int GetDuringOrdersCount(Customer customer)
         {
-            return customer.Orders.Where(order => !order.IsFinished).Count();
+            return Context.Customers.
+                     Include(cust => cust.Orders).
+                     FirstOrDefault(cust => object.ReferenceEquals(cust, customer)).
+                     Orders.Where(order => order.IsStarted && !order.IsFinished).Count();
         }
 
         public int GetFinishedOrdersCount(Customer customer)
         {
-            return customer.Orders.Where(order => order.IsFinished).Count();
+            return Context.Customers.
+                     Include(cust => cust.Orders).
+                     FirstOrDefault(cust => object.ReferenceEquals(cust, customer)).
+                     Orders.Where(order => order.IsFinished).Count();
         }
     }
 }

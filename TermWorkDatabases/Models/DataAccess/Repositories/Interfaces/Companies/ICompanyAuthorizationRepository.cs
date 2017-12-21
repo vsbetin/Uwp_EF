@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    interface ICompanyAuthorizationRepository : ISaveChanges
+    public interface ICompanyAuthorizationRepository : ISaveChanges
     {
         Company GetCompany(string login);
         bool CheckPassword(Company company, string password);

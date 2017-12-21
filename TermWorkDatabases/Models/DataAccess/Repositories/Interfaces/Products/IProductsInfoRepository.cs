@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    interface IProductsInfoRepository : ISaveChanges
+    public interface IProductsInfoRepository : ISaveChanges
     {
         List<CompanyProduct> GetProducts();
         List<CompanyProduct> GetCompanyProducts(Company company);

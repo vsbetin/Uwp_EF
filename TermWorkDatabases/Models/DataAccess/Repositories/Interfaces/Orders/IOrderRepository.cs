@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    interface IOrderRepository : ISaveChanges
+    public interface IOrderRepository : ISaveChanges
     {
         void CancelOrder(Order order);
         Order GetOrder(int id);

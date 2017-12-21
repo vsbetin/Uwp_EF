@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Plants
 {
-    class PlantsInfoRepository : RepositoryBase, IPlantsInfoRepository
+    public class PlantsInfoRepository : RepositoryBase, IPlantsInfoRepository
     {
         public bool AddPlant(Plant plant)
         {

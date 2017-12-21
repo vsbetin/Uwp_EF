@@ -9,7 +9,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Context
 {
-    class ProductAccountingDbContext : DbContext
+    public class ProductAccountingDbContext : DbContext
     {
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<CompanyProduct> CompaniesProducts { get; set; }

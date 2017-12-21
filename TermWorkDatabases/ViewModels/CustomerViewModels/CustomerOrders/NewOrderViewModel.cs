@@ -18,6 +18,7 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
             ProductsList = _customerOrdersService.GetProducts();
             CompanyList = _customerOrdersService.GetCompaniesName();
             CompanyList.Insert(0, "Companies");
+            Date = DateTimeOffset.Now;
         }
         Customer _customer;
         CustomerOrdersService _customerOrdersService;

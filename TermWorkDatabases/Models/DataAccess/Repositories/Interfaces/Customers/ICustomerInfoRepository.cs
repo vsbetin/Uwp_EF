@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    interface ICustomerInfoRepository : ICustomerRepository
+    public interface ICustomerInfoRepository : ICustomerRepository
     {
         void ChangeCustomerName(Customer customer ,string name);
         bool ChangeCustomerLogin(Customer customer, string login);

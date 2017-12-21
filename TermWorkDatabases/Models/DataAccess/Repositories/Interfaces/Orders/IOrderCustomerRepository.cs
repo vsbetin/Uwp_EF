@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Orders
 {
-    interface IOrderCustomerRepository : IOrderRepository
+    public interface IOrderCustomerRepository : IOrderRepository
     {
         void CreateNewOrder(Order order);
         List<Order> GetCustomerDuringOrders(Customer customer);

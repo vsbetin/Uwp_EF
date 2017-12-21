@@ -16,7 +16,7 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerOrders
         {
             _company = company;
             _companyOrdersService = new CompanyOrdersService(_company);
-            NewOrders = _companyOrdersService.GetNewOrders();
+            NewOrders = _companyOrdersService.GetNewOrders();            
         }
 
         Company _company;

@@ -8,7 +8,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    interface ICompaniesInfoRepository : ICompanyRepository
+    public interface ICompaniesInfoRepository : ICompanyRepository
     {        
         bool ChangeCompanyLogin(Company company, string login);
         void ChangeCompanyName(Company company, string name);

@@ -10,7 +10,7 @@ using TermWorkDatabases.Models.Services.Interfaces.Companies;
 
 namespace TermWorkDatabases.Models.Services.Companies
 {
-    class CompanyProductsService : CustomerProductsService, ICompanyProductsService
+    public class CompanyProductsService : CustomerProductsService, ICompanyProductsService
     {
         Company _company;
 

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Orders
 {
-    class OrderCustomerRepository : OrderRepository, IOrderCustomerRepository
+    public class OrderCustomerRepository : OrderRepository, IOrderCustomerRepository
     {
         public void CreateNewOrder(Order order)
         {

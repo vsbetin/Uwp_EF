@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Products
 {
-    interface IProductCompanyRepository : IProductsInfoRepository
+    public interface IProductCompanyRepository : IProductsInfoRepository
     {
         void ChangeProductName(CompanyProduct companyProduct, string name);
         void ChangeProductCost(CompanyProduct companyProduct, int cost);

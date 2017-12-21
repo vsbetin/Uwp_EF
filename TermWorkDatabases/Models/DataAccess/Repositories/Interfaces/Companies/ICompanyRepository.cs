@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    interface ICompanyRepository : ISaveChanges
+    public interface ICompanyRepository : ISaveChanges
     {
         List<Company> GetCompanies();
         Company GetComapny(string name);

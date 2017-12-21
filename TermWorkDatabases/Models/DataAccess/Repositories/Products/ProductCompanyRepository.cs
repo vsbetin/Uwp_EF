@@ -8,7 +8,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Products
 {
-    class ProductCompanyRepository : ProductsInfoRepository, IProductCompanyRepository
+    public class ProductCompanyRepository : ProductsInfoRepository, IProductCompanyRepository
     {
         public void AddProduct(string productName, int cost, Company company)
         {

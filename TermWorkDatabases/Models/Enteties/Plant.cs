@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace TermWorkDatabases.Models.Enteties
 {
     [Table("Plants")]
-    class Plant
+    public class Plant
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

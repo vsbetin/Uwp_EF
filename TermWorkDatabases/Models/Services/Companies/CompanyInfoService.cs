@@ -11,7 +11,7 @@ using TermWorkDatabases.Models.Services.Interfaces.Companies;
 
 namespace TermWorkDatabases.Models.Services.Companies
 {
-    class CompanyInfoService : ICompanyInfoService
+    public class CompanyInfoService : ICompanyInfoService
     {
         Company _company;
         ICompaniesInfoRepository _companyInfoRepository;

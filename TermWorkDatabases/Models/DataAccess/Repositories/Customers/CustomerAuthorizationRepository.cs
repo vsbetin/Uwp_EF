@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Customers
 {
-    class CustomerAuthorizationRepository : RepositoryBase, ICustomerAuthorizationRepository
+    public class CustomerAuthorizationRepository : RepositoryBase, ICustomerAuthorizationRepository
     {
         public bool AddCustomer(Customer customer, CustomerAccessData customerAccessData)
         {

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Orders
 {
-    class OrderCompanyRepository : OrderRepository, IOrderCompanyRepository
+    public class OrderCompanyRepository : OrderRepository, IOrderCompanyRepository
     {
         public void ConfirmNewOrder(Order order, OrderDetail orderDetail)
         {
@@ -20,7 +20,10 @@ namespace TermWorkDatabases.Models.DataAccess.Repositories.Orders
         public void FinishOrder(Order order)
         {
             order.IsFinished = true;
-            Context.OrderDetails.FirstOrDefault(orderDet => orderDet.Order == order).Plant.IsFree = true;
+            Context.OrderDetails.
+                Include(ordDet => ordDet.Order).
+                Include(ordDet => ordDet.Plant).
+                FirstOrDefault(orderDet => object.ReferenceEquals(orderDet.Order, order)).Plant.IsFree = true;
         }
 
         public List<Order> GetCompanyCompletedOrders(Company company)

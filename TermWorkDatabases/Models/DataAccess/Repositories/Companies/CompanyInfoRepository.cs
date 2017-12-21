@@ -7,9 +7,10 @@ using TermWorkDatabases.Models.DataAccess.Context;
 using TermWorkDatabases.Models.Enteties;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Companies
 {
-    class CompanyInfoRepository : CompanyRepository, ICompaniesInfoRepository
+    public class CompanyInfoRepository : CompanyRepository, ICompaniesInfoRepository
     {
         public void ChangeCompanyMobileNumber(Company company, string mobileNumber)
         {
@@ -48,12 +49,18 @@ namespace TermWorkDatabases.Models.DataAccess.Repositories.Companies
 
         public int GetDuringOrdersCount(Company company)
         {
-            return company.Products.Sum(compProd => compProd.Orders.Where(order => !order.IsFinished).Count());
+            return Context.Companies.
+                    Include(comp => comp.Products).
+                    FirstOrDefault(comp => object.ReferenceEquals(comp, company)).
+                    Products.Sum(compProd => compProd.Orders.Where(order => order.IsStarted && !order.IsFinished).Count());
         }
 
         public int GetFinishedOrdersCount(Company company)
         {
-            return company.Products.Sum(compProd => compProd.Orders.Where(order => order.IsFinished).Count());
+            return Context.Companies.
+                    Include(comp => comp.Products).
+                    FirstOrDefault(comp => object.ReferenceEquals(comp, company)).
+                    Products.Sum(compProd => compProd.Orders.Where(order => order.IsFinished).Count());
         }
     }
 }

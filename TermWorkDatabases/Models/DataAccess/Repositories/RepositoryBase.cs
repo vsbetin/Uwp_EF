@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.DataAccess.Context;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    abstract class RepositoryBase
+    public abstract class RepositoryBase
     {
         private static ProductAccountingDbContext _context;
         protected ProductAccountingDbContext Context

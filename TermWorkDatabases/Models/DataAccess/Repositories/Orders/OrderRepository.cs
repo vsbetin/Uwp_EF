@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Orders
 {
-    class OrderRepository : RepositoryBase, IOrderRepository
+    public class OrderRepository : RepositoryBase, IOrderRepository
     {
         public void CancelOrder(Order order)
         {

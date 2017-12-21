@@ -10,7 +10,7 @@ using TermWorkDatabases.Models.Services.Interfaces.Customers;
 
 namespace TermWorkDatabases.Models.Services.Customers
 {
-    class CustomerInfoService : ICustomerInfoService
+    public class CustomerInfoService : ICustomerInfoService
     {
         Customer _customer;
         ICustomerInfoRepository _customerInfoRepository;

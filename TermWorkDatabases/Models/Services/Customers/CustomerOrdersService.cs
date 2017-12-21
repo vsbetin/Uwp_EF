@@ -9,7 +9,7 @@ using TermWorkDatabases.Models.Services.Interfaces.Customers;
 
 namespace TermWorkDatabases.Models.Services.Customers
 {
-    class CustomerOrdersService : CustomerProductsService, ICustomerOrdersService
+    public class CustomerOrdersService : CustomerProductsService, ICustomerOrdersService
     {
         Customer _customer;
         IOrderCustomerRepository _orderCustomerRepository;

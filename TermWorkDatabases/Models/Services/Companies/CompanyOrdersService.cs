@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using TermWorkDatabases.Models.DataAccess.Repositories;
@@ -12,7 +14,7 @@ using TermWorkDatabases.Models.Services.Interfaces.Companies;
 
 namespace TermWorkDatabases.Models.Services.Companies
 {
-    class CompanyOrdersService : ICompanyOrdersService
+    public class CompanyOrdersService : ICompanyOrdersService
     {
         Company _company;
 
@@ -71,6 +73,29 @@ namespace TermWorkDatabases.Models.Services.Companies
             };
             OrderCompanyRepository.ConfirmNewOrder(order, orderDetail);
             OrderCompanyRepository.SaveChages();
+
+
+            string messageBody = $"Order #{order.Id}" + Environment.NewLine +
+                                 $"Product: {order.CompanieProduct.Product.Name}" + Environment.NewLine +
+                                 $"Count: {order.Count}" + Environment.NewLine +
+                                 $"Price: {order.Count * order.CompanieProduct.Cost}" + Environment.NewLine +
+                                 $"Finish date: {order.FinishDate.ToString()}" + Environment.NewLine +
+                                 $"Company: {order.CompanieProduct.Company.Name}" + Environment.NewLine +
+                                 $"Company number: {order.CompanieProduct.Company.MobileNumber}" + Environment.NewLine +
+                                 $"Company email: {order.CompanieProduct.Company.Email}" + Environment.NewLine;
+            string messageSubject = "Order #" + order.Id;
+            var from = new MailAddress("vladyslavbetin@gmail.com");
+            var to = new MailAddress(order.Customer.Email);
+            string password = "31071998mandarin";
+            var mail = new MailMessage();
+            mail.From = from;
+            mail.To.Add(to);
+            mail.Subject = messageSubject;
+            mail.Body = messageBody;
+            var client = new SmtpClient("smtp.gmail.com", 587);
+            client.EnableSsl = true;
+            client.Credentials = new NetworkCredential(from.Address, password);
+            client.Send(mail);
         }
 
         public void DeleteOrder(int orderId)

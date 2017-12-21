@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    interface ICustomerRepository : ISaveChanges
+    public interface ICustomerRepository : ISaveChanges
     {
         List<Customer> GetCustomers();
         Customer GetCustomer(string name);

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Products
 {
-    class ProductsInfoRepository : RepositoryBase, IProductsInfoRepository
+    public class ProductsInfoRepository : RepositoryBase, IProductsInfoRepository
     {
         public List<CompanyProduct> GetCompanyProducts(Company company)
         {

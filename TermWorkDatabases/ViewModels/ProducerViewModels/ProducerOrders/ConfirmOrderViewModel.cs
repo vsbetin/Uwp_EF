@@ -16,6 +16,8 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerOrders
             _order = order;
             _companyOrdersService = new CompanyOrdersService(order.CompanieProduct.Company);
             PlantsList = _companyOrdersService.GetPlants();
+            StartPlantWorkDate = DateTimeOffset.Now;
+            FinishPlantWorkDate = DateTime.Now;
         }
 
         Order _order;

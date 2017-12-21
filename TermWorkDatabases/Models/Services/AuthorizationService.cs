@@ -12,7 +12,7 @@ using TermWorkDatabases.Models.Services.Interfaces;
 
 namespace TermWorkDatabases.Models.Services
 {
-    class AuthorizationService : IAuthorizationService
+    public class AuthorizationService : IAuthorizationService
     {
         ICompanyAuthorizationRepository _companyRepository;
         ICompanyAuthorizationRepository CompanyRepository

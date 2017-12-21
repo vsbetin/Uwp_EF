@@ -7,7 +7,7 @@ using TermWorkDatabases.Models.Enteties;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories.Companies
 {
-    class CompanyRepository : RepositoryBase, ICompanyRepository
+    public class CompanyRepository : RepositoryBase, ICompanyRepository
     {
         public Company GetComapny(string name)
         {

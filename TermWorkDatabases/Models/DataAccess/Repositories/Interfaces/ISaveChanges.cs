@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TermWorkDatabases.Models.DataAccess.Repositories
 {
-    interface ISaveChanges
+    public interface ISaveChanges
     {
         void SaveChages();
     }

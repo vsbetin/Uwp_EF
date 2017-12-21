@@ -23,8 +23,8 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" PointerPressed="NewButton_PointerPressed">
-                    <TextBlock  Width="35" FontSize="25" Foreground="Navy" 
-                                VerticalAlignment="Center" Text="11"/>
+                    <TextBlock Width="35" FontFamily="Segoe MDL2 Assets" Foreground="Navy"
+                               FontSize="25" Text="&#xE710;" VerticalAlignment="Center"/>
                     <TextBlock Width="100" Text="New" FontSize="17" Foreground="Navy" VerticalAlignment="Center"/>
                 </StackPanel>
 
