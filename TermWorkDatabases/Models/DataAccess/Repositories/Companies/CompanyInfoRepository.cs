@@ -49,6 +49,7 @@ namespace TermWorkDatabases.Models.DataAccess.Repositories.Companies
 
         public int GetDuringOrdersCount(Company company)
         {
+            Context.Orders.Load();
             return Context.Companies.
                     Include(comp => comp.Products).
                     FirstOrDefault(comp => object.ReferenceEquals(comp, company)).
@@ -57,6 +58,7 @@ namespace TermWorkDatabases.Models.DataAccess.Repositories.Companies
 
         public int GetFinishedOrdersCount(Company company)
         {
+            Context.Orders.Load();
             return Context.Companies.
                     Include(comp => comp.Products).
                     FirstOrDefault(comp => object.ReferenceEquals(comp, company)).
