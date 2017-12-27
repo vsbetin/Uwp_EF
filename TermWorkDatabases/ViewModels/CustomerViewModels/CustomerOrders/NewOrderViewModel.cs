@@ -63,8 +63,8 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
             }
         }
 
-        private int _allPrice;
-        public int AllPrice
+        private double _allPrice;
+        public double AllPrice
         {
             get { return _allPrice; }
             set
@@ -114,7 +114,10 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
 
         private void ExecuteCountAllPrice(object obj)
         {
-            AllPrice = Count * Product.Cost;
+            if (Count > 10 || (Count * Product.Cost) > 1000)
+                AllPrice = Count * Product.Cost * 0.9;
+            else
+                AllPrice = Count * Product.Cost;
         }
 
         RelayCommand _createOrder;
@@ -160,7 +163,7 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
                 return;
             }
             else
-                ProductsList = productsByCompany;            
+                ProductsList = productsByCompany;
         }
     }
 }

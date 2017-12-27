@@ -66,7 +66,6 @@ namespace TermWorkDatabases.Models.DataAccess.Repositories.Products
                 return;
             Product product = companyProduct.Product;
             Context.CompaniesProducts.Remove(companyProduct);
-            // TODO: Check is Count 1 or 0
             if (product.Companies.Count <= 1)
                 Context.Products.Remove(product);
         }

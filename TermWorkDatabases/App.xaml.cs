@@ -35,8 +35,7 @@ namespace TermWorkDatabases
             this.Suspending += OnSuspending;
             using (var db = new ProductAccountingDbContext())
             {
-                //if (db.Database.EnsureCreated())
-                    db.Database.Migrate();
+                db.Database.Migrate();
             }
         }
 
