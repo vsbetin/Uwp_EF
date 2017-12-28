@@ -7,6 +7,7 @@ using System.Windows.Input;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services;
+using TermWorkDatabases.Models.Services.Interfaces;
 using TermWorkDatabases.Views.CustomerView;
 using TermWorkDatabases.Views.ProducerView;
 
@@ -30,7 +31,7 @@ namespace TermWorkDatabases.ViewModels.AuthorizationViewModels
             }
         }
 
-        AuthorizationService service;
+        IAuthorizationService service;
 
         private string _login;
         public string Login

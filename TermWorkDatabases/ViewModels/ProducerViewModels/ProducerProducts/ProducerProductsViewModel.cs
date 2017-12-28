@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services.Companies;
+using TermWorkDatabases.Models.Services.Interfaces.Companies;
 using TermWorkDatabases.Views.ProducerView;
 using TermWorkDatabases.Views.ProducerView.ProducerProducts;
 
@@ -23,7 +24,7 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerProducts
         }
 
         Company _company;
-        CompanyProductsService _companyProductsService;
+        ICompanyProductsService _companyProductsService;
 
         INavigationService _navigationService;
         public INavigationService NavigationService
@@ -64,8 +65,8 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerProducts
             }
         }
 
-        private (int Id, string CompanyName, string ProductName, int Cost) _product;
-        public (int Id, string CompanyName, string ProductName, int Cost) Product
+        private (int Id, string ProductName, string CompanyName, int Cost) _product;
+        public (int Id, string ProductName, string CompanyName, int Cost) Product
         {
             get { return _product; }
             set
@@ -76,8 +77,8 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerProducts
             }
         }
 
-        private List<(int Id, string CompanyName, string ProductName, int Cost)> _productsList;
-        public List<(int Id, string CompanyName, string ProductName, int Cost)> ProductsList
+        private List<(int Id, string ProductName, string CompanyName, int Cost)> _productsList;
+        public List<(int Id, string ProductName, string CompanyName, int Cost)> ProductsList
         {
             get { return _productsList; }
             set
@@ -128,13 +129,13 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerProducts
         {
             get
             {
-                return _deleteProduct ?? (_deleteProduct = new RelayCommand(ExecuteDeleteProduct, CanExecuteDeleteProduct));
+                return _deleteProduct ?? (_deleteProduct = new RelayCommand(ExecuteDeleteProduct, CanExecuteProduct));
             }
         }
 
-        private bool CanExecuteDeleteProduct(object obj)
+        private bool CanExecuteProduct(object obj)
         {
-            return !(Product.CompanyName == null);
+            return !(Product.CompanyName != _company.Name);
         }
 
         private void ExecuteDeleteProduct(object obj)
@@ -162,13 +163,8 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerProducts
         {
             get
             {
-                return _changeProduct ?? (_changeProduct = new RelayCommand(ExecuteChangeProduct, CanExecuteChangeProduct));
+                return _changeProduct ?? (_changeProduct = new RelayCommand(ExecuteChangeProduct, CanExecuteProduct));
             }
-        }
-
-        private bool CanExecuteChangeProduct(object obj)
-        {
-            return !(Product.CompanyName == null);
         }
 
         private void ExecuteChangeProduct(object obj)

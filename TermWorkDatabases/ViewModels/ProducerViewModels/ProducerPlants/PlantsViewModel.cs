@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services.Companies;
+using TermWorkDatabases.Models.Services.Interfaces.Companies;
 using TermWorkDatabases.Views.ProducerView.ProducerPlants;
 using TermWorkDatabases.Views.ProducerView.ProducerProducts;
 
@@ -21,7 +22,7 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerPlants
         }
 
         Company _company;
-        CompanyPlantsService _companyPlantsService;
+        ICompanyPlantsService _companyPlantsService;
 
         INavigationService _navigationService;
         public INavigationService NavigationService

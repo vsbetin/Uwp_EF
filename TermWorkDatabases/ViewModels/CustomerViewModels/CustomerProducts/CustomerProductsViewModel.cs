@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services.Customers;
+using TermWorkDatabases.Models.Services.Interfaces.Customers;
 
 namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerProducts
 {
@@ -22,7 +23,7 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerProducts
         }
 
         Customer _customer;
-        CustomerProductsService _customerProductsService;
+        ICustomerProductsService _customerProductsService;
 
         private string _productName;
         public string ProductName

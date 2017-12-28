@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services.Companies;
+using TermWorkDatabases.Models.Services.Interfaces.Companies;
 using TermWorkDatabases.Views.ProducerView.ProducerNewOrders;
 
 namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerOrders
@@ -20,7 +21,7 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerOrders
         }
 
         Company _company;
-        CompanyOrdersService _companyOrdersService;
+        ICompanyOrdersService _companyOrdersService;
 
         INavigationService _navigationService;
         public INavigationService NavigationService
@@ -65,7 +66,7 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerOrders
         private void ExecuteCancelOrder(object obj)
         {
             _companyOrdersService.DeleteOrder(Order.OrderId);
-            NewOrders = _companyOrdersService.GetDuringOrders();
+            NewOrders = _companyOrdersService.GetNewOrders();
         }
 
         RelayCommand _confirmOrder;

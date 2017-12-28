@@ -11,6 +11,7 @@ namespace TermWorkDatabases.Models.Services.Interfaces.Companies
     {
         void ConfirmNewOrder(int OrderId, int PlantId, DateTime StartPlantWork, DateTime FinishPlantWork);
         void FinishOrder(int OrderId);
+        List<(int PlantId, string PlantName)> GetPlants();
         List<(int OrderId, string ProductName, string CustomerName, string FinishDate, int Count, double Cost)> GetNewOrders();
         List<(int OrderId, string ProductName, string CustomerName, string FinishDate, int Count, double Cost)> GetNewOrdersByCustomer(string customerName);
         List<(int OrderId, string ProductName, string CustomerName, string FinishDate, int Count, double Cost)> GetDuringOrders();

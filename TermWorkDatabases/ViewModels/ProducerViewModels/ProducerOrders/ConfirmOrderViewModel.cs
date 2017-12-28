@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services.Companies;
+using TermWorkDatabases.Models.Services.Interfaces.Companies;
 
 namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerOrders
 {
@@ -21,7 +22,7 @@ namespace TermWorkDatabases.ViewModels.ProducerViewModels.ProducerOrders
         }
 
         Order _order;
-        CompanyOrdersService _companyOrdersService;
+        ICompanyOrdersService _companyOrdersService;
 
         INavigationService _navigationService;
         public INavigationService NavigationService

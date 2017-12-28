@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services.Customers;
+using TermWorkDatabases.Models.Services.Interfaces.Customers;
 
 namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
 {
@@ -21,7 +22,7 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
             Date = DateTimeOffset.Now;
         }
         Customer _customer;
-        CustomerOrdersService _customerOrdersService;
+        ICustomerOrdersService _customerOrdersService;
 
         private string _companyName;
         public string CompanyName
@@ -114,10 +115,10 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
 
         private void ExecuteCountAllPrice(object obj)
         {
-            if (Count > 10 || (Count * Product.Cost) > 1000)
-                AllPrice = Count * Product.Cost * 0.9;
-            else
+            if (Count > 0)
                 AllPrice = Count * Product.Cost;
+            else
+                AllPrice = 0;
         }
 
         RelayCommand _createOrder;
@@ -132,10 +133,14 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
         private void ExecuteCreateOrder(object obj)
         {
             if (_customerOrdersService.CreateNewOrder(Product.CompanyName, Product.ProductName, Count, Date.Date))
+            {
+                CompanyName = CompanyList[0];
+                Date = DateTimeOffset.Now;
+                Count = 0;
                 ErroreText = "Order created";
+            }
             else
                 ErroreText = "Wrong data";
-
         }
 
         RelayCommand _changeFilter;

@@ -40,7 +40,7 @@ namespace TermWorkDatabases.Models.DataAccess.Repositories.Products
             return Context.CompaniesProducts.
                 Include(compProd => compProd.Company).
                 Include(compProd => compProd.Product).
-                Where(compProd => compProd.Product.Name.StartsWith(name)).ToList();
+                Where(compProd => compProd.Product.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         public void SaveChages()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services.Customers;
+using TermWorkDatabases.Models.Services.Interfaces.Customers;
 
 namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerHome
 {
@@ -18,7 +19,7 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerHome
         }
 
         Customer _customer;
-        CustomerInfoService _customerInfoService;
+        ICustomerInfoService _customerInfoService;
 
         INavigationService _navigationService;
         public INavigationService NavigationService

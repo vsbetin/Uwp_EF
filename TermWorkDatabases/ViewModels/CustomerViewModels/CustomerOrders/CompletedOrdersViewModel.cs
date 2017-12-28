@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services.Customers;
+using TermWorkDatabases.Models.Services.Interfaces.Customers;
 
 namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
 {
@@ -18,7 +19,7 @@ namespace TermWorkDatabases.ViewModels.CustomerViewModels.CustomerOrders
         }
 
         Customer _customer;
-        CustomerOrdersService _customerOrdersService;
+        ICustomerOrdersService _customerOrdersService;
 
         private List<(int OrderId, string CompanyName, string ProductName, int Count, string FinishDate, double Price)> _completedOrders;
         public List<(int OrderId, string CompanyName, string ProductName, int Count, string FinishDate, double Price)> CompletedOrders

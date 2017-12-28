@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TermWorkDatabases.Infrastructure;
 using TermWorkDatabases.Models.DataAccess.Context;
 using TermWorkDatabases.Models.Enteties;
 using TermWorkDatabases.Models.Services;
+using TermWorkDatabases.Models.Services.Interfaces;
 using TermWorkDatabases.Views.CustomerView;
 using TermWorkDatabases.Views.ProducerView;
 
@@ -19,7 +21,6 @@ namespace TermWorkDatabases.ViewModels.AuthorizationViewModels
             Login = String.Empty;
             Password = String.Empty;
             service = new AuthorizationService();
-            ProductAccountingDbContext context = new ProductAccountingDbContext();
         }
 
         INavigationService _navigationService;
@@ -31,7 +32,7 @@ namespace TermWorkDatabases.ViewModels.AuthorizationViewModels
             }
         }
 
-        AuthorizationService service;
+        IAuthorizationService service;
 
         private string _login;
         public string Login
@@ -118,7 +119,7 @@ namespace TermWorkDatabases.ViewModels.AuthorizationViewModels
             AuthorizationService authorization = new AuthorizationService();
             if (isCustomer)
             {
-                if(CheckFields())
+                if (CheckFields())
                 {
                     var customer = authorization.SignUpCustomer(Name, Login, MobilePhone, Email, Password);
                     if (customer != null)
@@ -143,12 +144,13 @@ namespace TermWorkDatabases.ViewModels.AuthorizationViewModels
                     ErroreText = "Incorrect data";
             }
         }
-        
+
         private bool CheckFields()
         {
             return Password.Equals(RepeatPassword) && Password.Length >= 8 &&
                 !string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(Login) &&
-                !string.IsNullOrWhiteSpace(MobilePhone);
+                !string.IsNullOrWhiteSpace(MobilePhone) && Regex.Match(MobilePhone, "^[0-9]{10}$").Success &&
+                Regex.Match(Email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success;
         }
     }
 }
